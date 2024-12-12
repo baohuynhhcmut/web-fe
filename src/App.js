@@ -79,7 +79,16 @@ function App() {
             }
           />
 
-          <Route  path="/order-status" element={<OrderStatus />} />
+          <Route
+            path="/order-status"
+            element={
+              <ProtectedRoute>
+                <OrderStatus />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* <Route  path="/order-status" element={<OrderStatus />} /> */}
 
           {/* <ProtectedRoute path="/listing" element={<Listing />} />
           <ProtectedRoute path="/book-detail/:id" element={<BookDetail />} />

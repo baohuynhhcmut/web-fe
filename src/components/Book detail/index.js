@@ -5,11 +5,12 @@ import { useState } from "react";
 import { useAuth } from "../../Wrapper App";
 import Cookies from 'js-cookie';
 import { toast } from "react-toastify";
-
+import { useNavigate } from "react-router-dom";
 const DetailBook = ({book}) => {
 
     const[isBuy,setIsBuy] = useState(false)
     const {setCart} = useAuth()    
+    const   navigate = useNavigate()
 
     const handleBuy = async (id) => {
         const token = Cookies.get('PHPSESSID'); // Lấy token từ cookie
@@ -75,6 +76,10 @@ const DetailBook = ({book}) => {
         }
     };
 
+    const handleBuy1 = async(id) =>{
+        const test = await handleBuy(id)
+        navigate("/cart")
+    }
 
     return (
         <div class="grid grid-cols-5 gap-4 bg-white">
@@ -151,7 +156,7 @@ const DetailBook = ({book}) => {
                     <div class="grid grid-cols-4 gap-4 pr-20 mt-10">
                        <div className="col-span-2 flex items-center">
                             <div class="mr-10">
-                                <Link to={`/payment/${book?.id}`} type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Mua Ngay</Link>
+                                <button onClick={() =>handleBuy1(book?.id)} type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Mua Ngay</button>
                             </div>
                             <div class="mr-10 mt-1">
                                 {!isBuy ?

@@ -45,17 +45,29 @@ const Carousel = () => {
 
   return (
     <div className="flex items-center justify-center h-screen mt-10">
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 justify-center">
-      {cards.map((card, index) => (
-        // Chọn Card cũ nếu index khác 2, nếu không thì chọn Card mới
-        index !== 1 ? (
-          <CardOld key={card.id} image={card.image} title={card.title} value={card.value} />
-        ) : (
-          <CardNew key={card.id} image={card.image} title={card.title} value={card.value} />
-        )
-      ))}
+    {/* Ẩn toàn bộ grid trên màn hình nhỏ */}
+    <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+        {cards.map((card, index) => (
+            index !== 1 ? (
+                <CardOld
+                    key={card.id}
+                    image={card.image}
+                    title={card.title}
+                    value={card.value}
+                    className="rounded-lg shadow-lg p-4"
+                />
+            ) : (
+                <CardNew
+                    key={card.id}
+                    image={card.image}
+                    title={card.title}
+                    value={card.value}
+                    className="rounded-lg shadow-xl p-4 border border-indigo-500"
+                />
+            )
+        ))}
     </div>
-  </div>
+</div>
   );
 
 };

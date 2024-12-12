@@ -245,127 +245,160 @@ const Listing = () => {
                 <h2 className="text-xl text-center" style={{color:"#393280"}}>HOME  /  PRODUCTS</h2>
             </div>
 
-            <div class="grid grid-cols-4 gap-4 justify-between p-5 mt-5">
-                <div  style={{color:"#393280"}} className="flex justify-between items-center px-3 border-b border-solid border-gray-300">
-                    <span  style={{color:"#393280"}}>Price</span>
-                    <i class="fa-solid fa-minus"></i>
-                </div>
-                <div  style={{color:"#393280"}} className="flex justify-between items-center px-3">
-                    <form className="max-w-sm mx-auto">
-                        <label
-                            htmlFor="name"
-                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >
-                            Sắp theo bảng chữ cái
-                        </label>
-                        <select
-                            id="name"
-                            name="name"
-                            value={selectedOption}
-                            onChange={handleSelectChange}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        >
-                            <option value="" disabled>
-                            Choose an option
-                            </option>
-                            <option value="1">A - Z</option>
-                            <option value="2">Z - A</option>
-                        </select>
-                    </form>
-                </div>
-                <div  style={{color:"#393280"}} className="flex justify-between items-center px-3">
-                    {/* <span  style={{color:"#393280"}}>{`Showing ${books.length} of ${book.length}`}</span> */}
-                </div>
-                <div  style={{color:"#393280"}}className="flex justify-between items-center px-3" >
-                    <div>
-                        <form className="max-w-sm mx-auto">
-                            <label
-                                htmlFor="name"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >
-                                Sắp theo bảng giá
-                            </label>
-                            <select
-                                id="name"
-                                name="name"
-                                value={selectedOption1}
-                                onChange={handleSelectChange1}
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            >
-                                <option value="" disabled>
-                                Choose an option
-                                </option>
-                                <option value="1">Giá thấp</option>
-                                <option value="2">Giá cao</option>
-                            </select>
-                        </form>
-                    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-between p-5 mt-5">
+    {/* Price Filter */}
+    <div
+        style={{ color: "#393280" }}
+        className="flex justify-between items-center px-3 border-b border-solid border-gray-300"
+    >
+        <span style={{ color: "#393280" }}>Price</span>
+        <i className="fa-solid fa-minus"></i>
+    </div>
+
+    {/* Alphabetical Sorting */}
+    <div
+        style={{ color: "#393280" }}
+        className="flex justify-between items-center px-3"
+    >
+        <form className="w-full">
+            <label
+                htmlFor="name"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+                Sắp theo bảng chữ cái
+            </label>
+            <select
+                id="name"
+                name="name"
+                value={selectedOption}
+                onChange={handleSelectChange}
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+                <option value="" disabled>
+                    Choose an option
+                </option>
+                <option value="1">A - Z</option>
+                <option value="2">Z - A</option>
+            </select>
+        </form>
+    </div>
+
+    {/* Book Counter */}
+    <div
+        style={{ color: "#393280" }}
+        className="flex justify-between items-center px-3"
+    >
+        {/* Uncomment if data is available */}
+        {/* <span>{`Showing ${books.length} of ${book.length}`}</span> */}
+    </div>
+
+    {/* Price Sorting and View Options */}
+    <div
+        style={{ color: "#393280" }}
+        className="flex flex-col sm:flex-row justify-between items-center px-3"
+    >
+        <div className="w-full sm:w-auto">
+            <form>
+                <label
+                    htmlFor="price"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                    Sắp theo bảng giá
+                </label>
+                <select
+                    id="price"
+                    name="price"
+                    value={selectedOption1}
+                    onChange={handleSelectChange1}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                >
+                    <option value="" disabled>
+                        Choose an option
+                    </option>
+                    <option value="1">Giá thấp</option>
+                    <option value="2">Giá cao</option>
+                </select>
+            </form>
+        </div>
+        <div className="flex items-center mt-4 sm:mt-0 sm:ml-4">
+            <img src={widget} alt="Widget" className="h-5 w-5" />
+            <i className="fa-solid fa-bars text-2xl ml-3"></i>
+        </div>
+    </div>
+</div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 px-5">
+            {/* Sidebar */}
+            <div className="col-span-1 p-4 hidden md:block">
+                <div className="flex justify-between items-center">
                     <div className="flex items-center">
-                        <img src={widget} className="h-5 w-5"/>
-                        <i class="fa-solid fa-bars text-2xl ml-3"></i>
+                        <i className="fa-solid fa-dollar-sign mr-2"></i>
+                        <input
+                            className="w-[80px] border border-gray-200 p-2"
+                            type="text"
+                            placeholder="Min"
+                        />
+                    </div>
+                    <span>To</span>
+                    <div className="flex items-center">
+                        <i className="fa-solid fa-dollar-sign mr-2"></i>
+                        <input
+                            className="w-[80px] border border-gray-200 p-2"
+                            type="text"
+                            placeholder="Max"
+                        />
                     </div>
                 </div>
+
+                <div className="w-full mt-5">
+                    <button
+                        type="button"
+                        className="w-full text-white bg-purple-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    >
+                        Filter
+                    </button>
+                </div>
+
+                <ul>
+                    <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
+                        <span style={{ color: "#393280" }}>Product type</span>
+                        <i className="fa-solid fa-plus"></i>
+                    </li>
+                    <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
+                        <span style={{ color: "#393280" }}>Availability</span>
+                        <i className="fa-solid fa-plus"></i>
+                    </li>
+                    <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
+                        <span style={{ color: "#393280" }}>Brand</span>
+                        <i className="fa-solid fa-plus"></i>
+                    </li>
+                    <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
+                        <span style={{ color: "#393280" }}>Color</span>
+                        <i className="fa-solid fa-plus"></i>
+                    </li>
+                    <li className="flex justify-between items-center my-5 py-2">
+                        <span style={{ color: "#393280" }}>Material</span>
+                        <i className="fa-solid fa-plus"></i>
+                    </li>
+                </ul>
             </div>
 
-            <div class="grid grid-cols-4 gap-4 px-5">
-                <div class="col-span-1 p-4">
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <i class="fa-solid fa-dollar-sign mr-5"></i>
-                            <input class="w-[80px] border border-gray-200 p-2" type="text" placeholder="" />
-                        </div>
-                        <span>To</span>
-                        <div>
-                            <i class="fa-solid fa-dollar-sign mr-5"></i>
-                            <input class="w-[80px] border border-gray-200 p-2" type="text" placeholder="" />
-                        </div>
-                    </div>
-
-                    <div className="w-full mt-5">
-                         <button type="button" class="w-full text-white bg-purple-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Filter</button>
-                    </div>
-
-                    <ul>
-                        <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
-                            <span style={{color:"#393280"}}>Product type</span>
-                            <i class="fa-solid fa-plus"></i>
-                        </li>
-                        <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
-                            <span style={{color:"#393280"}}>Availability</span>
-                            <i class="fa-solid fa-plus"></i>
-                        </li>
-                        <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
-                            <span style={{color:"#393280"}}>Brand</span>
-                            <i class="fa-solid fa-plus"></i>
-                        </li>
-                        <li className="flex justify-between items-center my-5 border-b border-solid border-gray-300 py-2">
-                            <span style={{color:"#393280"}}>Color</span>
-                            <i class="fa-solid fa-plus"></i>
-                        </li>
-                        <li className="flex justify-between items-center my-5 py-2">
-                            <span style={{color:"#393280"}}>Material</span>
-                            <i class="fa-solid fa-plus"></i>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-span-3 p-4">
-                    <div class="grid grid-cols-3 gap-4">
+            {/* Book Cards */}
+            <div className="col-span-1 md:col-span-3 p-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {bookData?.map((book) => (
                         <div key={book.id} className="p-4">
                             <BookCard1
-                            img={book.image}
-                            title={book.name}
-                            author={book.author}
-                            price={book.price}
-                            id={book.id}
+                                img={book.image}
+                                title={book.name}
+                                author={book.author}
+                                price={book.price}
+                                id={book.id}
                             />
                         </div>
                     ))}
-                    </div>
                 </div>
-
-             </div>
+            </div>
+        </div>
         </div>  
     )
 }
