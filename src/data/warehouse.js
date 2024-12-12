@@ -1,11 +1,15 @@
 
 
 export const wareHouseHeader = [
-    "Mã Sách",
-    "Tên Sách",
-    "Nhà Xuất Bản",
-    "Tác Giả",
-    "Tồn Kho",
+    "ID",
+    "Số lượng",
+    "Thể loại",
+    "Tên",
+    "Tác giả",
+    "Nhà xuất bản",
+    "Giá",
+    "Hình Ảnh",
+    "Mô tả",
     ""
 ]
 
@@ -20,8 +24,5 @@ export const wareHouseData = [
 ]
 
 export const wareHouseModal = [
-    ["Tên Sách","book_name"],
-    ["Nhà Xuất Bản","book_publisher"],
-    ["Tác Giả","book_author"],
-    ["Tồn Kho","book_inventory"]
+    ["Số lượng muốn thêm vào","quantity"],
 ]

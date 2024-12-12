@@ -49,10 +49,10 @@ const Customer = () => {
                         lastname: item.LastName,
                         DOB: item.DOB,
                         phone: item.Phone,
+                        email: item.Email,
                         username: item.UserName,
                         password: item.Password,
-                        email: item.Email,
-                      
+                        role: item.Role
                       }));
 
                       console.log("ní:",transformedData)
@@ -79,14 +79,14 @@ const Customer = () => {
       <Table
           Header={header}
           DataRender={dataBook}
-          setRender={setData}
-          buttonAddName={"Thêm Sách"}
+          setRender={setDataBook}
+          buttonAddName={"Thêm Khách Hàng"}
           tableName = {"Danh Sách Khách Hàng"}
           modalAdd={customerModalAdd}
           id={"user_cusId"}
           urlAdd={'http://localhost/member/add'}
-          urlDele={''}
-          urlEdit={''}
+          urlDele={'http://localhost/member/delete'}
+          urlEdit={'http://localhost/member/update'}
        />
   );
 };

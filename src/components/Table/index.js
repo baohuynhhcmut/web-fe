@@ -50,7 +50,7 @@ const Table = ({
               urlAdd={urlAdd}
             />
           </div>
-
+          
           <ul className="flex">
             <li className="mr-6">
                 <SortButton Header={Header} Data={DataRender} setData={setRender}/>
@@ -111,6 +111,8 @@ const Table = ({
                         item={dataRow}
                         dataTitle={modalAdd}
                         id={id}
+                        urlDele={urlDele}
+                        urlEdit={urlEdit}
                       />
                     </td>
                   </tr>

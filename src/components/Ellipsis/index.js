@@ -20,7 +20,7 @@ const options = [
 
 const ITEM_HEIGHT = 48;
 
-export default function LongMenu({dataList,setData,item,id,dataTitle}) {
+export default function LongMenu({dataList,setData,item,id,dataTitle,urlDele,urlEdit}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -40,6 +40,7 @@ export default function LongMenu({dataList,setData,item,id,dataTitle}) {
 
   const handleUpdateBook = (itemToUpdate) => {
     console.log(itemToUpdate)
+
     const updatedList = dataList.map((element) =>
     {
       console.log("element: ",element)
@@ -47,7 +48,11 @@ export default function LongMenu({dataList,setData,item,id,dataTitle}) {
       return element["id"] === itemToUpdate["id"] ? itemToUpdate : element
     }
     );
+
     setData(updatedList); // Cập nhật danh sách sách
+
+
+
   };
   const handleCloseEdit = () => setOpenEdit(false);
 // End edit
@@ -72,7 +77,7 @@ const deletedBook = async () => {
 
    try {
         // Gửi yêu cầu đến API
-        const response = await fetch(`http://localhost/book/delete/${item["id"]}`, {
+        const response = await fetch(urlDele + `/${item["id"]}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -156,7 +161,7 @@ const handleCloseDelete = () => setOpenDeleted(false);
         </MenuItem>
       </Menu>
       
-      <ModalEdit open={openEdit}  onClose={handleCloseEdit} dataItem={item} changeBook={handleUpdateBook} dataTitle={dataTitle} />
+      <ModalEdit open={openEdit} urlEdit={urlEdit} onClose={handleCloseEdit} dataItem={item} changeBook={handleUpdateBook} dataTitle={dataTitle} />
       <DeleteModal open={openDeleted} onClose={handleCloseDelete} onDelete={deletedBook} /> 
     </div>
   );

@@ -3,10 +3,11 @@
 
 export const invoiceHeader = [
     "Mã Hóa Đơn",
-    "Số Hóa Đơn",
-    "Tổng Tiền",
-    "Ngày Lập",
+    "Username",
+    "Thời gian tạo đơn",
     "Tình Trạng",
+    "Địa chỉ giao hàng",
+    "Tổng giá",
     ""
 ]
 
@@ -21,9 +22,11 @@ export const invoiceData = [
 ]
 
 export const invoiceModal = [
-    ["Mã Hóa Đơn","invoice_id"],
-    ["Số Hóa Đơn","invoice_num"],
-    ["Tổng Tiền","invoice_price"],
-    ["Ngày Lập","invoice_date"],
-    ["Tình Trạng","invocie_state"]
+    ["Mã Hóa Đơn","orderID"],
+    ["Username","username"],
+    ["Thời gian tạo đơn","time_created"],
+    ["Tình Trạng","status"],
+    ["Địa chỉ giao hàng","deliveryAddress"],
+    ["Tổng giá","totalPrice"]
+
 ]

@@ -6,7 +6,6 @@ export const customerHeader = [
     "Ngày sinh",
     "Số điện thoại",
     "Email",
-    "Trạng thái",
     "Username",
     "Password",
     "Vai trò",
@@ -34,7 +33,7 @@ export const customerModalAdd = [
     ["Email","email"],
     // ["Trạng thái","status"],
     ["Username","username"],
-    ["Password","password"],
+    // ["Password","password"],
     // ["Vai trò","role"]
 ]
 

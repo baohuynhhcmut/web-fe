@@ -18,7 +18,7 @@ const style = {
   //   p: 4,
 };
 
-export default function ModalEdit({ open, onClose, dataItem,changeBook,dataTitle}) {
+export default function ModalEdit({ open, onClose, dataItem,changeBook,dataTitle,urlEdit}) {
   const [formData, setFormData] = React.useState({ ...dataItem });
  
   const handleSubmit = async (e) => {
@@ -34,8 +34,21 @@ export default function ModalEdit({ open, onClose, dataItem,changeBook,dataTitle
       }
                 
     try {
+      // const payload = {
+      //   firstName:formData.firstName,
+      //   lastname:formData.lastname,
+      //   DOB:formData.DOB,
+      //   username:formData.username,
+      //   email:formData.email,
+      //   phone:formData.phone
+      // }
+      // console.log("payload",payload)
+
       // Gửi yêu cầu đến API
-      const response = await fetch(`http://localhost/book/update/${formData.id}`, {
+
+      // console.log(formData)
+      
+      const response = await fetch(urlEdit+`/${formData.id}`, {
           method: 'PUT',
           headers: {
               'Content-Type': 'application/json',
@@ -46,8 +59,8 @@ export default function ModalEdit({ open, onClose, dataItem,changeBook,dataTitle
       });
 
       const result = await response.json();
-      
-      console.log(result)
+      // console.log("payload",payload)
+      // console.log(result)
 
       if (response.ok) {
           toast.success("Cập nhật thành công")
@@ -65,7 +78,7 @@ export default function ModalEdit({ open, onClose, dataItem,changeBook,dataTitle
       });
   }
 
-    console.log("hahahaah",formData)
+    // console.log("hahahaah",formData)
 
     changeBook(formData)
 
